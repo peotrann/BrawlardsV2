@@ -2,7 +2,9 @@ import * as THREE from 'three';
 
 // Tối ưu: Load texture một lần duy nhất và tái sử dụng
 const textureLoader = new THREE.TextureLoader();
-const smokeTexture = textureLoader.load('src/effects/particles/textures/smoke.png');
+// Using white pixel texture instead of loading external file
+let smokeTexture = new THREE.Texture(new Uint8Array([255, 255, 255, 255]), 1, 1, THREE.RGBAFormat);
+smokeTexture.needsUpdate = true;
 
 // Config
 const PARTICLE_COUNT = 6;
