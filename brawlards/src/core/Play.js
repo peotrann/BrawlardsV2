@@ -24,6 +24,23 @@ export function startPlay(renderer, onBack) {
   renderer.setClearColor(0x111111)
   renderer.render(new THREE.Scene(), new THREE.Camera())
 
+  // Back button (bottom-right, IT style - dark red)
+  const backButton = document.createElement("button")
+  backButton.id = "playBackButton"
+  backButton.innerText = "Back to Menu"
+  IT_STYLE.applyToElement(backButton, 'backButton')
+  backButton.style.position = "fixed"
+  backButton.style.bottom = "20px"
+  backButton.style.right = "20px"
+  backButton.style.zIndex = "10000"
+
+  backButton.onclick = () => {
+    cleanup()
+    onBack()
+  }
+
+  document.body.appendChild(backButton)
+
   // Scene selection UI (center of screen, fixed position)
   const container = document.createElement("div")
   container.id = "playContainer"
@@ -113,6 +130,9 @@ export function startPlay(renderer, onBack) {
 
     const bg = document.getElementById("playBackground")
     if (bg) bg.remove()
+
+    const btn = document.getElementById("playBackButton")
+    if (btn) btn.remove()
 
     const cont = document.getElementById("playContainer")
     if (cont) cont.remove()
