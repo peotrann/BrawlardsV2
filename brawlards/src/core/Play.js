@@ -24,46 +24,6 @@ export function startPlay(renderer, onBack) {
   renderer.setClearColor(0x111111)
   renderer.render(new THREE.Scene(), new THREE.Camera())
 
-  // Back button (bottom-right, IT style - dark red)
-  const backButton = document.createElement("button")
-  backButton.id = "playBackButton"
-  backButton.innerText = "Back to Menu"
-  backButton.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10000;
-    background: #8b0000;
-    color: #fff;
-    border: 2px solid #5a0000;
-    border-radius: 0;
-    padding: 8px 16px;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-    font-weight: bold;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 0 12px rgba(255, 0, 0, 0.4), inset 0 0 6px rgba(255, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  `
-
-  backButton.onmouseover = () => {
-    backButton.style.boxShadow = `0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 10px rgba(255, 0, 0, 0.3)`
-    backButton.style.transform = 'scale(1.05)'
-  }
-  backButton.onmouseout = () => {
-    backButton.style.boxShadow = `0 0 12px rgba(255, 0, 0, 0.4), inset 0 0 6px rgba(255, 0, 0, 0.2)`
-    backButton.style.transform = 'scale(1)'
-  }
-
-  backButton.onclick = () => {
-    cleanup()
-    onBack()
-  }
-
-  document.body.appendChild(backButton)
-
   // Scene selection UI (center of screen, fixed position)
   const container = document.createElement("div")
   container.id = "playContainer"
@@ -153,9 +113,6 @@ export function startPlay(renderer, onBack) {
 
     const bg = document.getElementById("playBackground")
     if (bg) bg.remove()
-
-    const btn = document.getElementById("playBackButton")
-    if (btn) btn.remove()
 
     const cont = document.getElementById("playContainer")
     if (cont) cont.remove()
