@@ -84,7 +84,7 @@ export class MusicPlayer {
       
       if (!nextSong) return
       
-      const response = await fetch(`/music/${nextSong}`)
+      const response = await fetch(`./music/${nextSong}`)
       const arrayBuffer = await response.arrayBuffer()
       const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer)
       

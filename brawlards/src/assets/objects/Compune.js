@@ -115,7 +115,7 @@ function createBackExtensionTexture() {
 }
 
 function loadNoSignalTexture() {
-  return textureLoader.load('src/pictures/no_signal.png')
+  return textureLoader.load('/BrawlardsV2/pictures/no_signal.png')
 }
 
 function createCompune() {

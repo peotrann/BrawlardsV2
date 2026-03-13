@@ -543,7 +543,7 @@ export function createScene1(lightingOverrides = {}) {
   // ======================================================
   const texLoader = new THREE.TextureLoader()
   // Load ảnh từ đường dẫn chính xác
-  const personTexture = texLoader.load('src/pictures/person.png')
+  const personTexture = texLoader.load('/BrawlardsV2/pictures/person.png')
 
   const personHeight = 4  // To hơn
   const personWidth = 4 // Tùy chỉnh tỷ lệ theo ảnh của bạn
